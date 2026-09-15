@@ -30,3 +30,4 @@ dialog.modal h2 { margin-top: 0; }
 .modal-actions { display: flex; gap: .6rem; justify-content: flex-end; margin-top: 1.2rem; flex-wrap: wrap; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
 @media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }
+#gate[hidden] { display: none !important; }
