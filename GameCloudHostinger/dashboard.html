@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Minha área — GameCloudHostinger</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="app">
+
+<aside class="side" id="side">
+  <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+  <nav class="side-nav">
+    <a href="#dashboard"   data-view="dashboard" class="active">📊 Dashboard</a>
+    <a href="#pedidos"     data-view="pedidos">🧾 Meus pedidos</a>
+    <a href="#servidores"  data-view="servidores">🖥️ Meus servidores</a>
+    <a href="#pagamentos"  data-view="pagamentos">💳 Pagamentos</a>
+    <a href="#comprovantes" data-view="comprovantes">📎 Comprovantes</a>
+    <a href="#renovacao"   data-view="renovacao">🔄 Renovação</a>
+    <a href="#suporte"     data-view="suporte">💬 Suporte</a>
+    <a href="#configuracoes" data-view="configuracoes">⚙️ Configurações</a>
+  </nav>
+  <div class="side-foot">
+    <a href="index.html">← Voltar ao site</a>
+    <a href="admin.html" id="adminLink" hidden>🛡️ Painel administrativo</a>
+    <a href="#" data-logout>🚪 Sair</a>
+  </div>
+</aside>
+
+<main class="app-main">
+  <div class="app-topbar">
+    <button class="app-burger" id="burger" aria-label="Abrir menu">☰</button>
+    <div>
+      <h1 id="viewTitle">Dashboard</h1>
+      <div class="who" id="whoAmI">Carregando...</div>
+    </div>
+    <a class="btn btn-primary btn-sm" href="index.html#planos">+ Contratar servidor</a>
+  </div>
+
+  <!-- Dashboard -->
+  <section data-panel="dashboard">
+    <div class="stats" id="clientStats"></div>
+    <div class="panel">
+      <div class="panel-head"><h2>Últimos pedidos</h2><a class="btn btn-light btn-sm" href="#pedidos">Ver todos</a></div>
+      <div class="table-scroll" id="recentOrders"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Seus servidores</h2><a class="btn btn-light btn-sm" href="#servidores">Ver todos</a></div>
+      <div id="recentServers" class="server-grid"></div>
+    </div>
+  </section>
+
+  <!-- Pedidos -->
+  <section data-panel="pedidos" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Meus pedidos</h2></div>
+      <div class="table-scroll" id="ordersTable"></div>
+    </div>
+  </section>
+
+  <!-- Servidores -->
+  <section data-panel="servidores" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Meus servidores</h2></div>
+      <div id="serversList" class="server-grid"></div>
+    </div>
+  </section>
+
+  <!-- Pagamentos -->
+  <section data-panel="pagamentos" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Pagamentos</h2></div>
+      <div class="table-scroll" id="paymentsTable"></div>
+    </div>
+  </section>
+
+  <!-- Comprovantes -->
+  <section data-panel="comprovantes" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Comprovantes enviados</h2></div>
+      <p class="muted" style="color:#66768a">Os arquivos ficam em um armazenamento privado. Só você e a nossa equipe conseguem abrir.</p>
+      <div class="table-scroll" id="proofsTable"></div>
+    </div>
+  </section>
+
+  <!-- Renovação -->
+  <section data-panel="renovacao" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Vencimentos</h2></div>
+      <div class="table-scroll" id="renewTable"></div>
+    </div>
+  </section>
+
+  <!-- Suporte -->
+  <section data-panel="suporte" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Abrir um chamado</h2>
+        <a class="btn btn-green btn-sm" id="waTicket" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div id="ticketMsg" class="alert" hidden></div>
+      <form id="ticketForm">
+        <div class="field">
+          <label for="subject">Assunto</label>
+          <input id="subject" name="subject" type="text" required maxlength="120" />
+        </div>
+        <div class="field">
+          <label for="category">Categoria</label>
+          <select id="category" name="category">
+            <option value="tecnico">Problema técnico</option>
+            <option value="financeiro">Financeiro</option>
+            <option value="ativacao">Ativação / novo servidor</option>
+            <option value="geral">Outro assunto</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="priority">Prioridade</label>
+          <select id="priority" name="priority">
+            <option value="low">Baixa</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">Alta</option>
+            <option value="urgent">Urgente</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Abrir chamado</button>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Meus chamados</h2></div>
+      <div class="table-scroll" id="ticketsTable"></div>
+      <div id="ticketThread"></div>
+    </div>
+  </section>
+
+  <!-- Configurações -->
+  <section data-panel="configuracoes" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Meus dados</h2></div>
+      <div id="profileMsg" class="alert" hidden></div>
+      <form id="profileForm" style="max-width:480px">
+        <div class="field">
+          <label for="pfName">Nome completo</label>
+          <input id="pfName" name="full_name" type="text" required />
+        </div>
+        <div class="field">
+          <label for="pfPhone">WhatsApp (opcional)</label>
+          <input id="pfPhone" name="phone" type="tel" placeholder="54999999999" />
+        </div>
+        <div class="field">
+          <label for="pfEmail">E-mail</label>
+          <input id="pfEmail" type="email" disabled />
+          <div class="hint">Para trocar o e-mail da conta, abra um chamado.</div>
+        </div>
+        <button class="btn btn-primary" type="submit">Salvar alterações</button>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="panel-head"><h2>Senha</h2></div>
+      <div id="passMsg" class="alert" hidden></div>
+      <form id="passwordForm" style="max-width:480px">
+        <div class="field">
+          <label for="newPass">Nova senha</label>
+          <input id="newPass" name="password" type="password" minlength="8" autocomplete="new-password" required />
+        </div>
+        <button class="btn btn-light" type="submit">Alterar senha</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+# Configuração do Supabase CLI.
+# O importante aqui: o webhook do PIX precisa aceitar chamadas sem JWT,
+# porque quem chama é o provedor de pagamento (a segurança dele é o token
+# validado dentro da função). Todas as outras funções exigem login.
+
+project_id = "gamecloudhostinger"
+
+[functions.create-payment]
+verify_jwt = true
+
+[functions.pix-webhook]
+verify_jwt = false
+
+[functions.activate-server]
+verify_jwt = true
+
+[functions.send-email]
+verify_jwt = true
+
+[functions.admin-proof-url]
+verify_jwt = true

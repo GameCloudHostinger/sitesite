@@ -1,0 +1,32 @@
+/* Painel administrativo — reaproveita o layout da área do cliente
+   com acentos próprios para separar visualmente os dois ambientes. */
+
+body.admin .side { background: #07100c; border-right-color: #143024; }
+body.admin .side-nav a.active { background: rgba(124,242,168,.14); color: var(--green); }
+body.admin .app-topbar h1::after {
+  content: 'admin'; margin-left: .6rem; font-size: .7rem; vertical-align: middle;
+  background: var(--green); color: #05230f; padding: .18rem .5rem; border-radius: 999px;
+  font-family: var(--font-body); font-weight: 700;
+}
+
+.admin-gate {
+  min-height: 100vh; display: grid; place-items: center; padding: 2rem; background: #05070a;
+}
+.admin-gate .auth-card { text-align: center; }
+
+.toolbar { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+.toolbar input, .toolbar select {
+  padding: .6rem .8rem; border: 1px solid #dde4ec; border-radius: 8px; font-family: var(--font-body); font-size: .92rem;
+}
+.toolbar input[type=search] { min-width: 240px; }
+
+dialog.modal {
+  border: none; border-radius: 16px; padding: 0; width: min(100% - 2rem, 620px);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.5);
+}
+dialog.modal::backdrop { background: rgba(5,7,10,.65); }
+dialog.modal .modal-body { padding: 1.7rem; }
+dialog.modal h2 { margin-top: 0; }
+.modal-actions { display: flex; gap: .6rem; justify-content: flex-end; margin-top: 1.2rem; flex-wrap: wrap; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+@media (max-width: 560px) { .grid-2 { grid-template-columns: 1fr; } }

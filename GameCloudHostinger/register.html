@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Criar conta — GameCloudHostinger</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" id="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+      <div class="nav-links" style="margin-left:auto"><a href="index.html#planos">Planos</a><a href="index.html#suporte">Suporte</a></div>
+    </nav>
+  </div>
+</header>
+<main class="auth-wrap">
+  <div class="auth-card">
+    <h1>Criar conta</h1>
+    <p class="sub">Leva menos de um minuto e já libera o checkout.</p>
+    <div id="formMsg" class="alert" hidden></div>
+    <form id="registerForm" novalidate>
+      <div class="field">
+        <label for="fullName">Nome completo</label>
+        <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+      </div>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <div class="hint">Use um e-mail que você acessa: é por ele que enviamos a confirmação e os dados do servidor.</div>
+      </div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required />
+        <div class="hint">Mínimo de 8 caracteres.</div>
+      </div>
+      <div class="field">
+        <label for="confirmPassword">Repita a senha</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" required />
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Criar conta</button>
+    </form>
+    <p class="auth-foot">Já tem conta? <a href="login.html">Entrar</a></p>
+  </div>
+</main>
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>

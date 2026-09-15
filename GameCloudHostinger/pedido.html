@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pedido — GameCloudHostinger</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body class="app">
+
+<aside class="side" id="side">
+  <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+  <nav class="side-nav">
+    <a href="dashboard.html#dashboard">📊 Dashboard</a>
+    <a href="dashboard.html#pedidos" class="active">🧾 Meus pedidos</a>
+    <a href="dashboard.html#servidores">🖥️ Meus servidores</a>
+    <a href="dashboard.html#suporte">💬 Suporte</a>
+  </nav>
+  <div class="side-foot">
+    <a href="index.html">← Voltar ao site</a>
+    <a href="#" data-logout>🚪 Sair</a>
+  </div>
+</aside>
+
+<main class="app-main">
+  <div class="app-topbar">
+    <button class="app-burger" id="burger" aria-label="Abrir menu">☰</button>
+    <div>
+      <h1>Pagamento do pedido</h1>
+      <div class="who" id="orderNumber">Carregando...</div>
+    </div>
+    <a class="btn btn-light btn-sm" href="dashboard.html#pedidos">Meus pedidos</a>
+  </div>
+
+  <div id="orderMsg" class="alert" hidden></div>
+
+  <section class="panel" id="summaryPanel" hidden>
+    <div class="panel-head">
+      <h2 id="productName"></h2>
+      <span id="statusChip"></span>
+    </div>
+    <dl class="kv">
+      <dt>Número</dt><dd class="mono" id="kvNumber"></dd>
+      <dt>Valor</dt><dd id="kvAmount"></dd>
+      <dt>Cliente</dt><dd id="kvCustomer"></dd>
+      <dt>Criado em</dt><dd id="kvCreated"></dd>
+      <dt>Vencimento do serviço</dt><dd id="kvDue"></dd>
+    </dl>
+  </section>
+
+  <section class="panel" id="pixPanel" hidden>
+    <div class="panel-head"><h2>Pague com PIX</h2></div>
+    <div class="pix-box">
+      <img id="pixQr" alt="QR Code PIX" hidden />
+      <div>
+        <p id="pixHelp" style="color:#66768a"></p>
+        <div class="field">
+          <label for="pixCode">Código copia e cola</label>
+          <div class="copy-field">
+            <input id="pixCode" type="text" readonly />
+            <button class="btn btn-light btn-sm" id="copyPix" type="button">Copiar</button>
+          </div>
+        </div>
+        <p style="color:#66768a;font-size:.88rem">
+          O pedido é liberado quando o pagamento é confirmado. Se o pagamento automático não estiver ativo,
+          envie o comprovante abaixo que a equipe confere manualmente.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="proofPanel" hidden>
+    <div class="panel-head"><h2>Enviar comprovante</h2></div>
+    <div id="proofMsg" class="alert" hidden></div>
+    <form id="proofForm">
+      <div class="field">
+        <label for="proofFile">Arquivo (PNG, JPG ou PDF, até 10 MB)</label>
+        <input id="proofFile" type="file" accept=".png,.jpg,.jpeg,.pdf,image/png,image/jpeg,application/pdf" required />
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit">Enviar comprovante</button>
+        <a class="btn btn-green" id="waProof" href="#" target="_blank" rel="noopener">Enviar comprovante pelo WhatsApp</a>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel" id="donePanel" hidden>
+    <div class="panel-head"><h2>Tudo certo por aqui</h2></div>
+    <p id="doneText" style="color:#66768a"></p>
+    <a class="btn btn-primary" href="dashboard.html#servidores">Ver meus servidores</a>
+  </section>
+</main>
+
+<script type="module" src="js/pedido.js"></script>
+</body>
+</html>

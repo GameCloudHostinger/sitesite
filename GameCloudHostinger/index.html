@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GameCloudHostinger — Hospedagem de servidores de jogos</title>
+<meta name="description" content="Servidores de Minecraft, FiveM e DayZ com proteção anti-DDoS, painel Pterodactyl e ativação rápida. Sua diversão, nossa infraestrutura." />
+<meta property="og:title" content="GameCloudHostinger" />
+<meta property="og:description" content="Sua diversão, nossa infraestrutura." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" id="nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">GC</span>
+        GameCloudHostinger
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="#planos">Planos</a>
+        <a href="#vantagens">Infraestrutura</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#faq">Dúvidas</a>
+        <a href="#suporte">Suporte</a>
+      </div>
+      <div class="nav-actions" id="navActions">
+        <a class="btn btn-ghost btn-sm" href="login.html">Entrar</a>
+        <a class="btn btn-primary btn-sm" href="register.html">Criar conta</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <h1>Sua diversão, nossa infraestrutura.</h1>
+        <p class="hero-lead">
+          A GameCloudHostinger cuida das máquinas, da rede e da proteção contra ataques
+          para você cuidar só do que importa: o seu servidor e a sua comunidade.
+          Painel Pterodactyl, proteção anti-DDoS e suporte em português.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#planos">Ver planos</a>
+          <a class="btn btn-ghost" href="register.html">Criar conta</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>Anti-DDoS</strong><span>em todos os planos</span></div>
+          <div><strong>Pterodactyl</strong><span>painel completo</span></div>
+          <div><strong>PIX</strong><span>ativação após confirmação</span></div>
+        </div>
+      </div>
+      <div class="console" aria-hidden="true">
+        <div class="console-bar"><i></i><i></i><i></i></div>
+        <p class="info">[gch] iniciando meuservidor.gamecloud.gg</p>
+        <p>carregando mundo... 100%</p>
+        <p>plugins carregados: 18</p>
+        <p class="ok">servidor online — 0.0 ms de lag</p>
+        <p class="ok">proteção anti-ddos ativa</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="planos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Escolha seu servidor</h2>
+        <p>Preços mensais, sem fidelidade. Você pode subir de plano quando a comunidade crescer.</p>
+      </div>
+
+      <div class="tabs" id="categoryTabs" role="tablist" aria-label="Categorias de hospedagem"></div>
+      <div class="plans" id="plansGrid">
+        <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+      </div>
+      <p id="plansEmpty" class="muted" hidden>Nenhum plano cadastrado nesta categoria ainda. Fale com a gente no WhatsApp que montamos um sob medida.</p>
+    </div>
+  </section>
+
+  <section class="section" id="vantagens">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>O que está incluso em todo servidor</h2>
+        <p>Sem taxa escondida e sem recurso bloqueado atrás de upgrade.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card"><div class="card-icon">🛡️</div><h3>Proteção anti-DDoS</h3><p>Filtragem na borda da rede para manter seu servidor no ar durante ataques.</p></article>
+        <article class="card"><div class="card-icon">⚙️</div><h3>Painel Pterodactyl</h3><p>Console em tempo real, arquivos, backups, agendamentos e subusuários.</p></article>
+        <article class="card"><div class="card-icon">📁</div><h3>FTP web e FileZilla</h3><p>Suba mods, mapas e plugins do jeito que preferir.</p></article>
+        <article class="card"><div class="card-icon">🗄️</div><h3>Banco MySQL</h3><p>Para economias, rankings e plugins que precisam de banco de dados.</p></article>
+        <article class="card"><div class="card-icon">🔗</div><h3>Subdomínio grátis</h3><p>Um endereço bonito para divulgar no lugar de IP e porta.</p></article>
+        <article class="card"><div class="card-icon">💬</div><h3>Suporte em português</h3><p>Atendimento por ticket e WhatsApp, com gente que joga o que você joga.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="como-funciona">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Como funciona</h2>
+        <p>Do clique em comprar até o servidor ligado.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div><h3>Crie sua conta</h3><p>Nome, e-mail e senha. Leva menos de um minuto.</p></div></div>
+        <div class="step"><div><h3>Escolha o plano e gere o PIX</h3><p>O pedido recebe um número no formato GCH-XXXXXXXX para você acompanhar.</p></div></div>
+        <div class="step"><div><h3>Pague e envie o comprovante</h3><p>A confirmação chega automaticamente pelo provedor de pagamento. Você também pode anexar o comprovante na sua área.</p></div></div>
+        <div class="step"><div><h3>Receba os dados de acesso</h3><p>Com o pagamento confirmado, criamos o servidor e liberamos IP, porta e painel na sua área de cliente.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Dúvidas frequentes</h2>
+      </div>
+      <div class="faq">
+        <details class="qa"><summary>Quanto tempo leva para o servidor ficar pronto?</summary><p>Assim que o pagamento é confirmado pelo provedor, o servidor entra na fila de criação. Na maioria dos casos você recebe os dados de acesso em poucos minutos.</p></details>
+        <details class="qa"><summary>Posso instalar mods e plugins?</summary><p>Sim. Você tem acesso completo aos arquivos pelo painel, por FTP web ou pelo FileZilla.</p></details>
+        <details class="qa"><summary>Preciso pagar taxa de instalação?</summary><p>Não. O valor mostrado é o valor mensal, sem taxa de setup.</p></details>
+        <details class="qa"><summary>Como funciona a renovação?</summary><p>Cada serviço tem uma data de vencimento visível na sua área. Avisamos quando estiver perto e você renova pelo mesmo fluxo de pagamento.</p></details>
+        <details class="qa"><summary>Posso trocar de plano depois?</summary><p>Pode. Abra um ticket pedindo o upgrade e ajustamos os recursos do seu servidor mantendo seus arquivos.</p></details>
+        <details class="qa"><summary>Quais formas de pagamento vocês aceitam?</summary><p>PIX. O pedido só é liberado depois que o pagamento é confirmado — nunca apenas pela informação de que foi pago.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="suporte">
+    <div class="wrap">
+      <div class="contact-band">
+        <div>
+          <h2>Ficou com dúvida antes de contratar?</h2>
+          <p>Chame no WhatsApp ou mande um e-mail. Respondemos em português e sem robô.</p>
+        </div>
+        <div class="hero-cta" style="margin:0">
+          <a class="btn btn-green" id="waSupport" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-ghost" id="mailSupport" href="#">Enviar e-mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+        <p class="muted" style="margin-top:.9rem">Sua diversão, nossa infraestrutura.</p>
+      </div>
+      <div>
+        <h4>Hospedagem</h4>
+        <ul>
+          <li><a href="#planos">Minecraft</a></li>
+          <li><a href="#planos">FiveM</a></li>
+          <li><a href="#planos">DayZ</a></li>
+          <li><a href="#planos">Sites e VPS</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Conta</h4>
+        <ul>
+          <li><a href="login.html">Entrar</a></li>
+          <li><a href="register.html">Criar conta</a></li>
+          <li><a href="dashboard.html">Área do cliente</a></li>
+          <li><a href="recuperar-senha.html">Recuperar senha</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a id="waFooter" href="#" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a id="mailFooter" href="#">E-mail</a></li>
+          <li><a href="#faq">Dúvidas frequentes</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> GameCloudHostinger. Todos os direitos reservados.</span>
+      <span>Feito para quem joga.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Administração — GameCloudHostinger</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/dashboard.css" />
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+<!-- Enquanto não confirmamos que é admin, mostramos só esta tela.
+     A verificação real acontece no banco (RLS + função is_admin). -->
+<div class="admin-gate" id="gate">
+  <div class="auth-card">
+    <h1>Área administrativa</h1>
+    <p class="sub" id="gateMsg">Verificando suas permissões...</p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn btn-light btn-sm" href="dashboard.html">Ir para minha área</a>
+      <a class="btn btn-ghost btn-sm" href="login.html" style="color:#16202c;border-color:#dde4ec">Entrar com outra conta</a>
+    </div>
+  </div>
+</div>
+
+<div id="app" hidden>
+<aside class="side" id="side">
+  <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+  <nav class="side-nav">
+    <a href="#dashboard" data-view="dashboard" class="active">📊 Dashboard</a>
+    <a href="#clientes"  data-view="clientes">👥 Clientes</a>
+    <a href="#pedidos"   data-view="pedidos">🧾 Pedidos</a>
+    <a href="#servidores" data-view="servidores">🖥️ Servidores</a>
+    <a href="#produtos"  data-view="produtos">📦 Produtos</a>
+    <a href="#tickets"   data-view="tickets">💬 Suporte</a>
+    <a href="#configuracoes" data-view="configuracoes">⚙️ Configurações</a>
+  </nav>
+  <div class="side-foot">
+    <a href="dashboard.html">← Área do cliente</a>
+    <a href="#" data-logout>🚪 Sair</a>
+  </div>
+</aside>
+
+<main class="app-main">
+  <div class="app-topbar">
+    <button class="app-burger" id="burger" aria-label="Abrir menu">☰</button>
+    <div>
+      <h1 id="viewTitle">Dashboard</h1>
+      <div class="who" id="whoAmI"></div>
+    </div>
+  </div>
+
+  <section data-panel="dashboard">
+    <div class="stats" id="adminStats"></div>
+    <div class="panel">
+      <div class="panel-head"><h2>Pedidos aguardando ação</h2></div>
+      <div class="table-scroll" id="pendingOrders"></div>
+    </div>
+  </section>
+
+  <section data-panel="clientes" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Clientes</h2></div>
+      <div class="toolbar">
+        <input type="search" id="customerSearch" placeholder="Buscar por nome ou e-mail" />
+      </div>
+      <div class="table-scroll" id="customersTable"></div>
+    </div>
+    <div id="customerDetail"></div>
+  </section>
+
+  <section data-panel="pedidos" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Pedidos</h2></div>
+      <div class="toolbar">
+        <input type="search" id="orderSearch" placeholder="Número, cliente ou produto" />
+        <select id="orderFilter">
+          <option value="">Todos os status</option>
+          <option value="awaiting_pix">Aguardando PIX</option>
+          <option value="proof_received">Comprovante recebido</option>
+          <option value="payment_confirmed">Pagamento confirmado</option>
+          <option value="active">Serviço ativo</option>
+          <option value="cancelled">Cancelado</option>
+          <option value="expired">Vencido</option>
+        </select>
+      </div>
+      <div class="table-scroll" id="ordersTable"></div>
+    </div>
+  </section>
+
+  <section data-panel="servidores" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Servidores</h2>
+        <button class="btn btn-primary btn-sm" id="newServer">+ Criar servidor</button>
+      </div>
+      <div class="table-scroll" id="serversTable"></div>
+    </div>
+  </section>
+
+  <section data-panel="produtos" hidden>
+    <div class="panel">
+      <div class="panel-head">
+        <h2>Produtos</h2>
+        <button class="btn btn-primary btn-sm" id="newProduct">+ Novo produto</button>
+      </div>
+      <div class="table-scroll" id="productsTable"></div>
+    </div>
+  </section>
+
+  <section data-panel="tickets" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Chamados</h2></div>
+      <div class="table-scroll" id="ticketsTable"></div>
+      <div id="ticketThread"></div>
+    </div>
+  </section>
+
+  <section data-panel="configuracoes" hidden>
+    <div class="panel">
+      <div class="panel-head"><h2>Dados da empresa</h2></div>
+      <div id="settingsMsg" class="alert" hidden></div>
+      <form id="settingsForm" style="max-width:560px">
+        <div class="grid-2">
+          <div class="field"><label for="setName">Nome da empresa</label><input id="setName" type="text" /></div>
+          <div class="field"><label for="setSlogan">Slogan</label><input id="setSlogan" type="text" /></div>
+          <div class="field"><label for="setWhats">WhatsApp (só números)</label><input id="setWhats" type="text" /></div>
+          <div class="field"><label for="setEmail">E-mail</label><input id="setEmail" type="email" /></div>
+          <div class="field"><label for="setDiscord">Discord (link)</label><input id="setDiscord" type="url" /></div>
+          <div class="field"><label for="setPixKey">Chave PIX</label><input id="setPixKey" type="text" /></div>
+          <div class="field"><label for="setPixType">Tipo da chave</label>
+            <select id="setPixType">
+              <option value="">—</option><option value="cpf">CPF</option><option value="cnpj">CNPJ</option>
+              <option value="email">E-mail</option><option value="telefone">Telefone</option><option value="aleatoria">Aleatória</option>
+            </select>
+          </div>
+          <div class="field"><label for="setPixReceiver">Nome do recebedor</label><input id="setPixReceiver" type="text" /></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Salvar configurações</button>
+        <p class="hint" style="color:#66768a;margin-top:.8rem">
+          Estas configurações ficam no banco. O arquivo <code>js/config.js</code> continua sendo a
+          referência usada pelo site — atualize os dois quando mudar contatos.
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+</div>
+
+<dialog class="modal" id="modal"><div class="modal-body" id="modalBody"></div></dialog>
+
+<script type="module" src="js/admin.js"></script>
+</body>
+</html>

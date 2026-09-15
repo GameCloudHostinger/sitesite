@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Entrar — GameCloudHostinger</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav" id="nav">
+      <a class="brand" href="index.html"><span class="brand-mark">GC</span> GameCloudHostinger</a>
+      <div class="nav-links" style="margin-left:auto"><a href="index.html#planos">Planos</a><a href="index.html#suporte">Suporte</a></div>
+    </nav>
+  </div>
+</header>
+<main class="auth-wrap">
+  <div class="auth-card">
+    <h1>Entrar</h1>
+    <p class="sub">Acesse sua área de cliente para ver pedidos e servidores.</p>
+    <div id="formMsg" class="alert" hidden></div>
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+      </div>
+      <div class="field">
+        <label for="password">Senha</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    </form>
+    <p class="auth-foot">
+      <a href="recuperar-senha.html">Esqueci minha senha</a><br />
+      Ainda não tem conta? <a href="register.html">Criar conta</a>
+    </p>
+  </div>
+</main>
+<script type="module" src="js/auth.js"></script>
+</body>
+</html>
