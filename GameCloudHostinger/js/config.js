@@ -26,10 +26,10 @@ export const CONFIG = {
   // Chave PIX manual (fallback enquanto o gateway não estiver ativo).
   // Deixe vazio até você definir sua chave. Uma chave PIX não é segredo,
   // mas o pedido SÓ é confirmado após validação (webhook ou conferência do admin).
-  PIX_KEY: '',
-  PIX_KEY_TYPE: '',                       // 'cpf' | 'cnpj' | 'email' | 'telefone' | 'aleatoria'
-  PIX_RECEIVER_NAME: '',
-  PIX_CITY: 'PASSO FUNDO',
+  PIX_KEY: '3adc2f04-ff93-4671-a896-3330a46b5156',
+  PIX_KEY_TYPE: 'gamecloudhostinger@gmail.com',                       // 'cpf' | 'cnpj' | 'email' | 'telefone' | 'aleatoria'
+  PIX_RECEIVER_NAME: 'wuillian machado de oliveira',
+  PIX_CITY: '',
 
   // ---- Gateway ----
   // Quando a Edge Function create-payment estiver configurada com as
